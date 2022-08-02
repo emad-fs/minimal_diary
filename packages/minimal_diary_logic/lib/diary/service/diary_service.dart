@@ -1,6 +1,6 @@
 import 'package:minimal_diary_logic/database/model/diary/diary_model.dart';
 import 'package:minimal_diary_logic/diary/datasource/base_diary_datasource.dart';
-import 'package:minimal_diary_logic/diary/service/base_canvas_service.dart';
+import 'package:minimal_diary_logic/diary/service/base_diary_service.dart';
 
 class DiaryService extends BaseDiaryService {
   DiaryService(this.diaryDatasource);
