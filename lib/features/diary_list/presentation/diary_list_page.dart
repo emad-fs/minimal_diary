@@ -17,6 +17,7 @@ class _DiaryListPageState extends State<DiaryListPage> {
   void initState() {
     super.initState();
     _diaryController = Get.find<DiaryController>();
+    _diaryController.getDiaryList();
   }
 
   @override
@@ -40,7 +41,7 @@ class _DiaryListPageState extends State<DiaryListPage> {
           () => ListView.builder(
             itemCount: _diaryController.diaries.length,
             itemBuilder: (BuildContext context, int index) => ListTile(
-              title: Text(_diaryController.diaries[index].diary ?? ''),
+              title: Text(_diaryController.diaries[index].title ?? ''),
             ),
           ),
         );
