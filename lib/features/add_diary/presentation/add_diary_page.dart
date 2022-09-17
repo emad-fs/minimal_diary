@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:drift/drift.dart' as drift;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -41,8 +39,8 @@ class _AddDiaryPageState extends State<AddDiaryPage> {
   Widget _buildAddDiaryPage() => SafeArea(
         child: Scaffold(
           body: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: ThemeProvider.margin08),
+            padding:
+                const EdgeInsets.symmetric(horizontal: ThemeProvider.margin08),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -77,13 +75,13 @@ class _AddDiaryPageState extends State<AddDiaryPage> {
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () async{
-              if(!_titleController.value.text.isEmpty && !_textController.text.isEmpty){
+            onPressed: () async {
+              if (!_titleController.value.text.isEmpty &&
+                  !_textController.text.isEmpty) {
                 await _saveDiary();
                 print('saved');
                 Get.back();
               }
-
             },
             child: Icon(Icons.done),
           ),
@@ -92,11 +90,10 @@ class _AddDiaryPageState extends State<AddDiaryPage> {
 
   Future<void> _saveDiary() async {
     DiaryCompanion currentDiary = DiaryCompanion(
-      title: drift.Value<String>(_titleController.value.text),
-      diary: drift.Value<String>(_textController.value.text),
-      userId: drift.Value<int>(1),
-      date: drift.Value<DateTime>(DateTime.now())
-    );
+        title: drift.Value<String>(_titleController.value.text),
+        diary: drift.Value<String>(_textController.value.text),
+        userId: drift.Value<int>(1),
+        date: drift.Value<DateTime>(DateTime.now()));
     await _diaryController.saveDiary(currentDiary);
   }
 }

@@ -33,11 +33,7 @@ class _DiaryListPageState extends State<DiaryListPage> {
     );
   }
 
-  Widget _buildDiaryList() => _diaryController.diaries.isEmpty
-      ? Center(
-          child: Text('no data'),
-        )
-      : Obx(
+  Widget _buildDiaryList() => Obx(
           () => ListView.builder(
             itemCount: _diaryController.diaries.length,
             itemBuilder: (BuildContext context, int index) => ListTile(
