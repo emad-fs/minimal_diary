@@ -77,7 +77,11 @@ flutter:
         - asset: assets/fonts/Caveat-Regular.ttf
     - family: SourceSerif4
       fonts:
+          - asset: assets/fonts/SourceSerif4-ExtraLight.ttf
+          - asset: assets/fonts/SourceSerif4-Light.ttf
           - asset: assets/fonts/SourceSerif4-Regular.ttf
+          - asset: assets/fonts/SourceSerif4-SemiBold.ttf
+          - asset: assets/fonts/SourceSerif4-Bold.ttf
 flutter_intl:
   main_locale: en_US
   enabled: true

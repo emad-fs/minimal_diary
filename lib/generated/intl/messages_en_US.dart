@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "hintHowWasYourDay":
+            MessageLookupByLibrary.simpleMessage("How was your day..."),
+        "hintTitle": MessageLookupByLibrary.simpleMessage("Title"),
         "labelBack": MessageLookupByLibrary.simpleMessage("Back"),
         "labelDone": MessageLookupByLibrary.simpleMessage("Done"),
         "labelMinimalDiary":

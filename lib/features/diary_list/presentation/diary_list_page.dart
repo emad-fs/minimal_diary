@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:minimal_diary/core/diary/controller/diary_controller.dart';
 import 'package:minimal_diary/features/add_diary/presentation/add_diary_page.dart';
 import 'package:minimal_diary/features/diary_list/presentation/widgets/diary_list_item.dart';
-import 'package:minimal_diary/generated/l10n.dart';
 import 'package:theme_provider/text_styles.dart';
+import 'package:minimal_diary/core/extensions/index.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 class DiaryListPage extends StatefulWidget {
@@ -31,7 +31,7 @@ class _DiaryListPageState extends State<DiaryListPage> {
         iconTheme: IconThemeData(color: Colors.grey),
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text(S.of(context).labelMinimalDiary,),
+        title: Text(context.localization.labelMinimalDiary),
         titleTextStyle: TextStyles.lightTitle.copyWith(color: Colors.grey),
         centerTitle: true,
       ),
@@ -52,7 +52,7 @@ class _DiaryListPageState extends State<DiaryListPage> {
             itemCount: _diaryController.diaries.length,
             itemBuilder: (BuildContext context, int index) => DiaryListItem(
               title: _diaryController.diaries[index].title ?? '',
-              date: _diaryController.diaries[index].date.toString() ?? '',
+              date: _diaryController.diaries[index].date.toString(),
               onTap: () {
                 Get.to(
                   AddDiaryPage(

@@ -24,14 +24,14 @@ class TextStyles {
     fontFamily: appFontFamily,
     fontSize: 20,
     height: 1.5,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w700,
   );
 
   static TextStyle lightTitle = const TextStyle(
     fontFamily: appFontFamily,
     fontSize: 20,
     height: 1.5,
-    fontWeight: FontWeight.w300,
+    fontWeight: FontWeight.w600,
   );
 
   static TextStyle subheading = const TextStyle(
@@ -47,7 +47,6 @@ class TextStyles {
     height: 1.3,
     fontWeight: FontWeight.w500,
   );
-
   static TextStyle body1Bold = const TextStyle(
     fontFamily: appFontFamily,
     fontSize: 14,
@@ -60,6 +59,20 @@ class TextStyles {
     fontSize: 14,
     height: 1.3,
     fontWeight: FontWeight.normal,
+  );
+
+  static TextStyle body1Light = const TextStyle(
+    fontFamily: appFontFamily,
+    fontSize: 14,
+    height: 1.3,
+    fontWeight: FontWeight.w300,
+  );
+
+  static TextStyle body1VeryLight = const TextStyle(
+    fontFamily: appFontFamily,
+    fontSize: 14,
+    height: 1.3,
+    fontWeight: FontWeight.w200,
   );
 
   static TextStyle caption = const TextStyle(

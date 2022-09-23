@@ -26,7 +26,7 @@ class DiaryListItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(title,style: TextStyles.title,),
+              Text(title,style: TextStyles.body1.copyWith(fontSize: 17),),
               Text(date, style: TextStyles.overline.copyWith(color: Colors.grey)),
             ],
           ),

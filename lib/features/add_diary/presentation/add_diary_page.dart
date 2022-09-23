@@ -2,7 +2,7 @@ import 'package:drift/drift.dart' as drift;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:minimal_diary/core/diary/controller/diary_controller.dart';
-import 'package:minimal_diary/generated/l10n.dart';
+import 'package:minimal_diary/core/extensions/index.dart';
 import 'package:minimal_diary_logic/database/model/diary/diary_model.dart';
 import 'package:theme_provider/text_styles.dart';
 import 'package:theme_provider/theme_provider.dart';
@@ -33,16 +33,11 @@ class _AddDiaryPageState extends State<AddDiaryPage> {
     _diaryController = Get.find<DiaryController>();
     _diaryData = widget.diary;
 
-    if (_diaryData != null) {
-      _titleController.text = _diaryData?.title ?? '';
-    }
+    _initializeDiaryData(_diaryData);
   }
 
   @override
   Widget build(BuildContext context) {
-    _textController.text = S
-        .of(context)
-        .lorem_ipsam;
     return Scaffold(
       body: _buildAddDiaryPage(),
     );
@@ -78,28 +73,23 @@ class _AddDiaryPageState extends State<AddDiaryPage> {
             children: <Widget>[
               TextField(
                 controller: _titleController,
-                style: TextStyles.title,
+                style: TextStyles.lightTitle.copyWith(fontSize: 22),
                 decoration: InputDecoration(
-                  hintText: 'title',
+                  border: InputBorder.none,
+                  hintText: context.localization.hintTitle,
                 ),
               ),
               Expanded(
                 child: TextField(
                   controller: _textController,
-                  style: TextStyles.body2,
+                  style: TextStyles.body1Light.copyWith(fontSize: 17),
                   enabled: true,
                   expands: true,
                   maxLines: null,
                   autocorrect: false,
                   decoration: InputDecoration(
-                    /*enabledBorder: const OutlineInputBorder(
-                  borderRadius: BorderRadius.zero,
-                  borderSide: BorderSide(
-                      color: Colors.black,
-                      width: 3.0,
-                      style: BorderStyle.solid),
-                ),*/
-                    hintText: 'how was your day...',
+                    border: InputBorder.none,
+                    hintText: context.localization.hintHowWasYourDay,
                   ),
                 ),
               ),
@@ -121,5 +111,12 @@ class _AddDiaryPageState extends State<AddDiaryPage> {
     }
     else
       await _diaryController.saveDiary(currentDiary);
+  }
+
+  void _initializeDiaryData(DiaryData? diaryData){
+    if (_diaryData != null) {
+      _titleController.text = _diaryData?.title ?? '';
+      _textController.text = _diaryData?.diary ?? '';
+    }
   }
 }

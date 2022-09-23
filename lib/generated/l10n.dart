@@ -89,6 +89,26 @@ class S {
       args: [],
     );
   }
+
+  /// `How was your day...`
+  String get hintHowWasYourDay {
+    return Intl.message(
+      'How was your day...',
+      name: 'hintHowWasYourDay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Title`
+  String get hintTitle {
+    return Intl.message(
+      'Title',
+      name: 'hintTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
