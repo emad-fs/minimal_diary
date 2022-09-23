@@ -25,4 +25,13 @@ class DiaryService extends BaseDiaryService {
       rethrow;
     }
   }
+
+  @override
+  Future<bool> editDiary(DiaryCompanion diaryCompanion) async{
+    try {
+      return await diaryDatasource.updateDiary(diaryCompanion);
+    } on Exception {
+      rethrow;
+    }
+  }
 }

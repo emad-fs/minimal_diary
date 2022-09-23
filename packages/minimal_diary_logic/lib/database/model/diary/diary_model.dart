@@ -27,10 +27,18 @@ class MyDatabase extends _$MyDatabase {
 
   static MyDatabase get instance => _instance;
 
-  Future<int> insert(DiaryCompanion diaryCompanion) =>
+  Future<int> insertDiary(DiaryCompanion diaryCompanion) =>
       into(diary).insert(diaryCompanion);
 
-  Future<List<DiaryData>> get fetchCanvasList  => select(diary).get();
+  Future<List<DiaryData>> get fetchCanvasList => select(diary).get();
+
+  Future<bool> updateDiary(DiaryCompanion diaryCompanion) {
+    return update(diary).replace(diaryCompanion);
+  }
+
+  Future<DiaryData> getSingleDiaryById(int id) {
+    return (select(diary)..where((tbl) => tbl.id.equals(id))).getSingle();
+  }
 
   @override
   int get schemaVersion => 1;

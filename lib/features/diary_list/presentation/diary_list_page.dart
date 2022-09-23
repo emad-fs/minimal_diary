@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:minimal_diary/core/diary/controller/diary_controller.dart';
 import 'package:minimal_diary/features/add_diary/presentation/add_diary_page.dart';
+import 'package:minimal_diary/features/diary_list/presentation/widgets/diary_list_item.dart';
+import 'package:minimal_diary/generated/l10n.dart';
+import 'package:theme_provider/text_styles.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 class DiaryListPage extends StatefulWidget {
   const DiaryListPage({Key? key}) : super(key: key);
@@ -23,6 +27,14 @@ class _DiaryListPageState extends State<DiaryListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.grey),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Text(S.of(context).labelMinimalDiary,),
+        titleTextStyle: TextStyles.lightTitle.copyWith(color: Colors.grey),
+        centerTitle: true,
+      ),
       body: _buildDiaryList(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -33,12 +45,23 @@ class _DiaryListPageState extends State<DiaryListPage> {
     );
   }
 
-  Widget _buildDiaryList() => Obx(
+  Widget _buildDiaryList() => Padding(
+        padding: EdgeInsets.symmetric(horizontal: ThemeProvider.margin16),
+        child: Obx(
           () => ListView.builder(
             itemCount: _diaryController.diaries.length,
-            itemBuilder: (BuildContext context, int index) => ListTile(
-              title: Text(_diaryController.diaries[index].title ?? ''),
+            itemBuilder: (BuildContext context, int index) => DiaryListItem(
+              title: _diaryController.diaries[index].title ?? '',
+              date: _diaryController.diaries[index].date.toString() ?? '',
+              onTap: () {
+                Get.to(
+                  AddDiaryPage(
+                    diary: _diaryController.diaries[index],
+                  ),
+                );
+              },
             ),
           ),
-        );
+        ),
+      );
 }

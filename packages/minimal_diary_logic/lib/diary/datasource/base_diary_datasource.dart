@@ -5,5 +5,8 @@ abstract class BaseDiaryDatasource {
 
   Future<List<DiaryData>> fetchDiaryList();
 
-  Future<void> storeDiary(DiaryCompanion canvasCompanion);
+  Future<void> storeDiary(DiaryCompanion diaryCompanion);
+
+  Future<bool> updateDiary(DiaryCompanion diaryCompanion);
+
 }

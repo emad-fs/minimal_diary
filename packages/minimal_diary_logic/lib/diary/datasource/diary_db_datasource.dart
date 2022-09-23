@@ -7,7 +7,12 @@ class DiaryDbDataSource extends BaseDiaryDatasource {
       MyDatabase.instance.fetchCanvasList;
 
   @override
-  Future<void> storeDiary(DiaryCompanion canvasCompanion) async {
-    await MyDatabase.instance.insert(canvasCompanion);
+  Future<void> storeDiary(DiaryCompanion diaryCompanion) async {
+    await MyDatabase.instance.insertDiary(diaryCompanion);
+  }
+
+  @override
+  Future<bool> updateDiary(DiaryCompanion diaryCompanion) async{
+    return await MyDatabase.instance.updateDiary(diaryCompanion);
   }
 }

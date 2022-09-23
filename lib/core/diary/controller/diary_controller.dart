@@ -17,4 +17,9 @@ class DiaryController extends GetxController {
     await diaryService.saveDiary(diaryCompanion);
     diaries.value = await diaryService.getDiaryList();
   }
+
+  Future<void> editDiary(DiaryCompanion diaryCompanion) async {
+    await diaryService.editDiary(diaryCompanion);
+    diaries.value = await diaryService.getDiaryList();
+  }
 }

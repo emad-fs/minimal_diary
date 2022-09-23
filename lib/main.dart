@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:minimal_diary/core/diary/controller/diary_controller.dart';
 import 'package:minimal_diary/features/add_diary/presentation/add_diary_page.dart';
 import 'package:minimal_diary/features/diary_list/presentation/diary_list_page.dart';
+import 'package:minimal_diary/generated/l10n.dart';
 import 'package:minimal_diary_logic/diary/datasource/diary_db_datasource.dart';
 import 'package:minimal_diary_logic/diary/service/diary_service.dart';
 
 void main() {
-  initializeControllers();
+  _initializeControllers();
   runApp(const MyApp());
 }
 
@@ -25,16 +27,24 @@ class MyApp extends StatelessWidget {
         ),
       ],
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Color(0xffF9F5EB)
+        primarySwatch: Colors.lime,
+        scaffoldBackgroundColor: Colors.white
       ),
+      localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
       home: DiaryListPage(),
     );
   }
 }
 
-void initializeControllers() {
+void _initializeControllers() {
   Get.put(
     DiaryController(
       DiaryService(
