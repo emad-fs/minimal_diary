@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:minimal_diary/core/diary/controller/diary_controller.dart';
+import 'package:minimal_diary/core/extensions/index.dart';
 import 'package:minimal_diary/features/add_diary/presentation/add_diary_page.dart';
 import 'package:minimal_diary/features/diary_list/presentation/widgets/diary_list_item.dart';
+import 'package:minimal_diary/features/diary_list/presentation/widgets/main_search_delegate.dart';
 import 'package:theme_provider/text_styles.dart';
-import 'package:minimal_diary/core/extensions/index.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 class DiaryListPage extends StatefulWidget {
@@ -34,6 +35,14 @@ class _DiaryListPageState extends State<DiaryListPage> {
         title: Text(context.localization.labelMinimalDiary),
         titleTextStyle: TextStyles.lightTitle.copyWith(color: Colors.grey),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              showSearch(context: context, delegate: MainSearchDelegate());
+            },
+          )
+        ],
       ),
       body: _buildDiaryList(),
       floatingActionButton: FloatingActionButton(

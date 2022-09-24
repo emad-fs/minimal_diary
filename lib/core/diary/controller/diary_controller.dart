@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:minimal_diary_logic/database/model/diary/diary_model.dart';
 import 'package:minimal_diary_logic/diary/service/base_diary_service.dart';
 
-class DiaryController extends GetxController {
+class DiaryController extends GetxController with StateMixin<List<DiaryData>>{
   DiaryController(this.diaryService);
 
   RxList<DiaryData> diaries = <DiaryData>[].obs;
@@ -10,7 +10,8 @@ class DiaryController extends GetxController {
   final BaseDiaryService diaryService;
 
   Future<void> getDiaryList() async {
-    diaries.value = await diaryService.getDiaryList();
+    List<DiaryData> data = await diaryService.getDiaryList();
+    diaries.value = data;
   }
 
   Future<void> saveDiary(DiaryCompanion diaryCompanion) async {
@@ -21,5 +22,9 @@ class DiaryController extends GetxController {
   Future<void> editDiary(DiaryCompanion diaryCompanion) async {
     await diaryService.editDiary(diaryCompanion);
     diaries.value = await diaryService.getDiaryList();
+  }
+
+  Future<List<DiaryData>> searchDiaries(String queryString){
+    return diaryService.searchDiary(queryString);
   }
 }

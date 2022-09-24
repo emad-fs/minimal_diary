@@ -15,4 +15,9 @@ class DiaryDbDataSource extends BaseDiaryDatasource {
   Future<bool> updateDiary(DiaryCompanion diaryCompanion) async{
     return await MyDatabase.instance.updateDiary(diaryCompanion);
   }
+
+  @override
+  Future<List<DiaryData>> queryDiaries(String queryString) async{
+    return await MyDatabase.instance.searchQuery(queryString);
+  }
 }

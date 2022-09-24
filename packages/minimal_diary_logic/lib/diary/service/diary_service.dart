@@ -34,4 +34,13 @@ class DiaryService extends BaseDiaryService {
       rethrow;
     }
   }
+
+  @override
+  Future<List<DiaryData>> searchDiary(String queryString) async{
+    try {
+      return await diaryDatasource.queryDiaries(queryString);
+    } on Exception {
+      rethrow;
+    }
+  }
 }

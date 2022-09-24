@@ -9,4 +9,5 @@ abstract class BaseDiaryDatasource {
 
   Future<bool> updateDiary(DiaryCompanion diaryCompanion);
 
+  Future<List<DiaryData>> queryDiaries(String queryString);
 }
