@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:minimal_diary/core/helpers/index.dart';
 import 'package:theme_provider/text_styles.dart';
 import 'package:theme_provider/theme_provider.dart';
 
@@ -12,7 +13,7 @@ class DiaryListItem extends StatelessWidget {
 
   final String title;
 
-  final String date;
+  final DateTime date;
 
   final void Function()? onTap;
 
@@ -26,8 +27,11 @@ class DiaryListItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(title,style: TextStyles.body1.copyWith(fontSize: 17),),
-              Text(date, style: TextStyles.overline.copyWith(color: Colors.grey)),
+              Text(title, style: TextStyles.body1.copyWith(fontSize: 17)),
+              Text(
+                getFormattedDate(date),
+                style: TextStyles.overline.copyWith(color: Colors.grey),
+              ),
             ],
           ),
         ),

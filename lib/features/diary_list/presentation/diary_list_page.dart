@@ -61,7 +61,7 @@ class _DiaryListPageState extends State<DiaryListPage> {
             itemCount: _diaryController.diaries.length,
             itemBuilder: (BuildContext context, int index) => DiaryListItem(
               title: _diaryController.diaries[index].title ?? '',
-              date: _diaryController.diaries[index].date.toString(),
+              date: _diaryController.diaries[index].date,
               onTap: () {
                 Get.to(
                   AddDiaryPage(

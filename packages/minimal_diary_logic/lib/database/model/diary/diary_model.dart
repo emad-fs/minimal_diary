@@ -40,8 +40,12 @@ class MyDatabase extends _$MyDatabase {
     return (select(diary)..where((tbl) => tbl.id.equals(id))).getSingle();
   }
 
-  Future<List<DiaryData>> searchQuery(String queryString){
-    return (select(diary)..where((tbl) => tbl.title.contains(queryString))).get();
+  Future<List<DiaryData>> searchQuery(String queryString) {
+    return (select(diary)
+          ..where((tbl) =>
+              tbl.title.contains(queryString) |
+              tbl.diary.contains(queryString)))
+        .get();
   }
 
   @override

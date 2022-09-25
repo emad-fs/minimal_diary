@@ -22,7 +22,7 @@ class DiaryList extends StatelessWidget {
             itemCount: items.length,
             itemBuilder: (BuildContext context, int index) => DiaryListItem(
               title: items[index].title ?? '',
-              date: items[index].date.toString(),
+              date: items[index].date,
               onTap: (){
                 onTap?.call(items[index]);
               },
