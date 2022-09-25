@@ -27,4 +27,9 @@ class DiaryController extends GetxController with StateMixin<List<DiaryData>>{
   Future<List<DiaryData>> searchDiaries(String queryString){
     return diaryService.searchDiary(queryString);
   }
+
+  Future<void> removeDiary(DiaryData diaryData) async{
+     await diaryService.removeDiary(diaryData);
+     diaries.value = await diaryService.getDiaryList();
+  }
 }

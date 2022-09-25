@@ -10,4 +10,6 @@ abstract class BaseDiaryService {
   Future<bool> editDiary(DiaryCompanion diaryCompanion);
 
   Future<List<DiaryData>> searchDiary(String queryString);
+
+  Future<int> removeDiary(DiaryData item);
 }

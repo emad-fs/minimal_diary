@@ -8,6 +8,7 @@ class DiaryListItem extends StatelessWidget {
     required this.title,
     required this.date,
     this.onTap,
+    this.onLongPress,
     Key? key,
   }) : super(key: key);
 
@@ -16,11 +17,14 @@ class DiaryListItem extends StatelessWidget {
   final DateTime date;
 
   final void Function()? onTap;
+  final void Function()? onLongPress;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
+      borderRadius: BorderRadius.all(Radius.circular(ThemeProvider.margin04)),
+      onLongPress: onLongPress,
       child: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: ThemeProvider.margin08),

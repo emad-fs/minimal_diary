@@ -3,6 +3,13 @@
   "labelDone": "Done",
   "labelMinimalDiary": "Minimal Diary",
   "labelBack": "Back",
+  "labelRemoveDiary": "Remove Diary",
+  "labelAreYouSure": "Are you sure to remove diary",
+  "labelYes": "Yes",
+  "labelNo": "No",
+  "labelClose": "Close",
+  "labelVersion": "Version",
+  "labelViewLicenses": "View Licenses",
   "hintHowWasYourDay": "How was your day...",
   "hintTitle": "Title"
 }

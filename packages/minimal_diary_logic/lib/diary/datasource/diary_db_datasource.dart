@@ -20,4 +20,10 @@ class DiaryDbDataSource extends BaseDiaryDatasource {
   Future<List<DiaryData>> queryDiaries(String queryString) async{
     return await MyDatabase.instance.searchQuery(queryString);
   }
+
+  @override
+  Future<int> deleteDiary(DiaryData diaryData) async{
+    // TODO: implement deleteDiary
+    return await MyDatabase.instance.deleteDiary(diaryData);
+  }
 }

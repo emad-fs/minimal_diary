@@ -1,7 +1,4 @@
-library minimal_diary_logic;
+/// Minimal Diary app logic.
+/// The logic is created as a separate package.
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+library minimal_diary_logic;

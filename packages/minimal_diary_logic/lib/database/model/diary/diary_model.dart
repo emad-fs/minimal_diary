@@ -36,6 +36,10 @@ class MyDatabase extends _$MyDatabase {
     return update(diary).replace(diaryCompanion);
   }
 
+  Future<int> deleteDiary(DiaryData entity){
+    return delete(diary).delete(entity);
+  }
+
   Future<DiaryData> getSingleDiaryById(int id) {
     return (select(diary)..where((tbl) => tbl.id.equals(id))).getSingle();
   }

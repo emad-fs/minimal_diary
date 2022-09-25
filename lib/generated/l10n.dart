@@ -90,6 +90,76 @@ class S {
     );
   }
 
+  /// `Remove Diary`
+  String get labelRemoveDiary {
+    return Intl.message(
+      'Remove Diary',
+      name: 'labelRemoveDiary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure to remove diary`
+  String get labelAreYouSure {
+    return Intl.message(
+      'Are you sure to remove diary',
+      name: 'labelAreYouSure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes`
+  String get labelYes {
+    return Intl.message(
+      'Yes',
+      name: 'labelYes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No`
+  String get labelNo {
+    return Intl.message(
+      'No',
+      name: 'labelNo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get labelClose {
+    return Intl.message(
+      'Close',
+      name: 'labelClose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Version`
+  String get labelVersion {
+    return Intl.message(
+      'Version',
+      name: 'labelVersion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View Licenses`
+  String get labelViewLicenses {
+    return Intl.message(
+      'View Licenses',
+      name: 'labelViewLicenses',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `How was your day...`
   String get hintHowWasYourDay {
     return Intl.message(

@@ -43,4 +43,13 @@ class DiaryService extends BaseDiaryService {
       rethrow;
     }
   }
+
+  @override
+  Future<int> removeDiary(DiaryData item) async{
+    try {
+      return await diaryDatasource.deleteDiary(item);
+    } on Exception {
+      rethrow;
+    }
+  }
 }
